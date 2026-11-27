@@ -4,38 +4,12 @@ import { UserAvatar } from "./user-avatar";
 
 export type { ConnectedUser } from "../lib/connected-user";
 
-type ConnectedUserListProps = {
-	users: ConnectedUser[];
-	onStartChat: (user: ConnectedUser) => void;
-};
-
-export function ConnectedUserList({
-	users,
-	onStartChat,
-}: ConnectedUserListProps) {
-	if (users.length === 0) {
-		return (
-			<p className="py-8 text-center text-[13px] text-[#828b85]">
-				No people match your search.
-			</p>
-		);
-	}
-
-	return (
-		<ul className="m-0 list-none p-0">
-			{users.map((user) => (
-				<ConnectedUserRow key={user.id} user={user} onStartChat={onStartChat} />
-			))}
-		</ul>
-	);
-}
-
 type ConnectedUserRowProps = {
 	user: ConnectedUser;
 	onStartChat: (user: ConnectedUser) => void;
 };
 
-function ConnectedUserRow({ user, onStartChat }: ConnectedUserRowProps) {
+export function ConnectedUserRow({ user, onStartChat }: ConnectedUserRowProps) {
 	return (
 		<li className="flex min-h-[76px] items-center gap-[11px] border-b border-[#e8ebe8] sm:min-h-[82px] sm:gap-[14px]">
 			<UserAvatar

@@ -1,62 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
 import { AppHeader } from "../components/app-header";
-import { ChatDialog } from "../components/chat-dialog";
 import { ConnectedUserSearch } from "../components/connected-user-search";
-import { ConnectedUserList } from "../components/connected-user-list";
+import { ConnectedUserList } from "#/components/connected-users-list";
 import { PeoplePageHeading } from "../components/people-page-heading";
-import type { ConnectedUser } from "../lib/connected-user";
+import { connectedUsers } from "../lib/connected-users";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
 	const [query, setQuery] = useState("");
-	const [activeUser, setActiveUser] = useState<ConnectedUser | null>(null);
-	const users: ConnectedUser[] = [
-		{
-			id: "maya-chen",
-			name: "Maya Chen",
-			initials: "MC",
-			detail: "Product designer",
-			tone: "sage",
-		},
-		{
-			id: "james-okafor",
-			name: "James Okafor",
-			initials: "JO",
-			detail: "Frontend engineer",
-			tone: "blue",
-		},
-		{
-			id: "sofia-rossi",
-			name: "Sofia Rossi",
-			initials: "SR",
-			detail: "Research lead",
-			tone: "rose",
-		},
-		{
-			id: "leo-martin",
-			name: "Leo Martin",
-			initials: "LM",
-			detail: "Product manager",
-			tone: "gold",
-		},
-		{
-			id: "amina-yusuf",
-			name: "Amina Yusuf",
-			initials: "AY",
-			detail: "Content strategist",
-			tone: "lavender",
-		},
-		{
-			id: "noah-williams",
-			name: "Noah Williams",
-			initials: "NW",
-			detail: "Software engineer",
-			tone: "mint",
-		},
-	];
-	const filteredUsers = users.filter((user) =>
+	const navigate = useNavigate();
+	const filteredUsers = connectedUsers.filter((user) =>
 		`${user.name} ${user.detail}`.toLowerCase().includes(query.toLowerCase()),
 	);
 
@@ -65,7 +21,7 @@ function Home() {
 			<AppHeader />
 
 			<main className="mx-auto w-full max-w-[45rem] px-5 py-12 sm:px-0 sm:py-[4.3rem]">
-				<PeoplePageHeading connectedCount={users.length} />
+				<PeoplePageHeading connectedCount={connectedUsers.length} />
 				<ConnectedUserSearch query={query} onQueryChange={setQuery} />
 
 				<section className="mt-[37px]" aria-labelledby="connected-heading">
@@ -82,18 +38,15 @@ function Home() {
 					</div>
 					<ConnectedUserList
 						users={filteredUsers}
-						onStartChat={setActiveUser}
+						onStartChat={(user) =>
+							navigate({
+								to: "/chat/$chatID",
+								params: { chatID: user.id },
+							})
+						}
 					/>
 				</section>
 			</main>
-
-			{activeUser && (
-				<ChatDialog
-					key={activeUser.id}
-					user={activeUser}
-					onClose={() => setActiveUser(null)}
-				/>
-			)}
 		</div>
 	);
 }
