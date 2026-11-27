@@ -56,7 +56,7 @@ export function Conversation({ user }: ConversationProps) {
 
 	return (
 		<section
-			className="flex min-h-0 flex-1 flex-col"
+			className="flex min-h-0 flex-1 flex-col bg-[#f4f6f2] sm:overflow-hidden sm:rounded-2xl sm:border sm:border-[#e2e7e2] sm:bg-white sm:shadow-[0_12px_40px_rgba(34,55,42,0.06)]"
 			aria-label={`Chat with ${user.name}`}
 		>
 			<ConversationHeader user={user} />

@@ -16,18 +16,18 @@ export function MessageComposer({
 }: MessageComposerProps) {
 	return (
 		<form
-			className="flex shrink-0 items-center gap-3 border-t border-[#e2e7e2] py-4"
+			className="flex shrink-0 items-center gap-2 border-t border-[#e2e7e2] bg-white px-3 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:gap-3 sm:px-5 sm:py-4"
 			onSubmit={onSubmit}
 		>
 			<input
-				className="h-12 min-w-0 flex-1 rounded-lg border border-[#e1e6e1] bg-white px-4 text-sm text-[#27332b] outline-none placeholder:text-[#9aa39d] focus:border-[#6a9278] focus:ring-2 focus:ring-[#437756]/10"
+				className="h-11 min-w-0 flex-1 rounded-full border border-[#e1e6e1] bg-[#f7f8f6] px-4 text-[15px] text-[#27332b] outline-none placeholder:text-[#9aa39d] focus:border-[#6a9278] focus:ring-2 focus:ring-[#437756]/10 sm:h-12 sm:rounded-lg sm:bg-white sm:text-sm"
 				value={draft}
 				onChange={(event) => onDraftChange(event.target.value)}
 				placeholder={`Message ${user.name}`}
 				aria-label={`Message ${user.name}`}
 			/>
 			<button
-				className="grid size-12 shrink-0 place-items-center rounded-lg bg-[#28583e] text-white transition hover:bg-[#214b39] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#28583e] disabled:cursor-default disabled:bg-[#c6d1c9]"
+				className="grid size-11 shrink-0 place-items-center rounded-full bg-[#28583e] text-white transition hover:bg-[#214b39] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#28583e] disabled:cursor-default disabled:bg-[#c6d1c9] sm:size-12 sm:rounded-lg"
 				type="submit"
 				disabled={!draft.trim()}
 				aria-label="Send message"

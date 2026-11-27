@@ -2,7 +2,7 @@ import { ChatBubbleEmpty } from "iconoir-react";
 
 export function AppHeader() {
 	return (
-		<header className="flex h-16 items-center border-b border-[#e6e9e5] bg-white/85 px-6 sm:h-[4.75rem] lg:px-[max(1.75rem,calc((100vw-70rem)/2))]">
+		<header className="flex h-14 items-center border-b border-[#e6e9e5] bg-white/95 px-4 sm:h-[4.75rem] sm:px-6 lg:px-[max(1.75rem,calc((100vw-70rem)/2))]">
 			<a
 				className="inline-flex items-center gap-2.5 text-[21px] font-bold text-[#1d392d] no-underline"
 				href="/"

@@ -17,10 +17,10 @@ function Home() {
 	);
 
 	return (
-		<div className="min-h-screen bg-[#f7f8f6] [background-image:linear-gradient(90deg,rgba(28,67,52,0.025)_1px,transparent_1px)] [background-size:80px_100%]">
+		<div className="min-h-dvh bg-[#f7f8f6] [background-image:linear-gradient(90deg,rgba(28,67,52,0.025)_1px,transparent_1px)] [background-size:80px_100%]">
 			<AppHeader />
 
-			<main className="mx-auto w-full max-w-[45rem] px-5 py-12 sm:px-0 sm:py-[4.3rem]">
+			<main className="mx-auto w-full max-w-[45rem] px-4 py-7 sm:px-6 sm:py-12 lg:px-0 lg:py-[4.3rem]">
 				<PeoplePageHeading connectedCount={connectedUsers.length} />
 				<ConnectedUserSearch query={query} onQueryChange={setQuery} />
 

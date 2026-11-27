@@ -11,11 +11,11 @@ type ConnectedUserRowProps = {
 
 export function ConnectedUserRow({ user, onStartChat }: ConnectedUserRowProps) {
 	return (
-		<li className="flex min-h-[76px] items-center gap-[11px] border-b border-[#e8ebe8] sm:min-h-[82px] sm:gap-[14px]">
+		<li className="flex min-h-[74px] items-center gap-3 border-b border-[#e8ebe8] sm:min-h-[82px] sm:gap-[14px]">
 			<UserAvatar
 				initials={user.initials}
 				tone={user.tone}
-				className="size-[39px] rounded-xl sm:size-[43px] sm:rounded-[13px]"
+				className="size-11 rounded-full sm:size-[43px] sm:rounded-[13px]"
 			/>
 			<div className="min-w-0 flex-1">
 				<div className="overflow-hidden text-ellipsis whitespace-nowrap text-[13px] font-semibold text-[#2b352e]">

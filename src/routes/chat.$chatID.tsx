@@ -12,9 +12,9 @@ function ChatPage() {
 	);
 
 	return (
-		<div className="min-h-screen bg-[#f7f8f6] [background-image:linear-gradient(90deg,rgba(28,67,52,0.025)_1px,transparent_1px)] [background-size:80px_100%]">
-			<AppHeader />
-			<main className="mx-auto flex h-[calc(100dvh-4rem)] w-full max-w-4xl flex-col px-4 sm:h-[calc(100dvh-4.75rem)] sm:px-6">
+		<div className="min-h-dvh bg-[#f7f8f6] [background-image:linear-gradient(90deg,rgba(28,67,52,0.025)_1px,transparent_1px)] [background-size:80px_100%]">
+			<div className="hidden sm:block"><AppHeader /></div>
+			<main className="mx-auto flex h-[100dvh] w-full max-w-4xl flex-col sm:h-[calc(100dvh-4.75rem)] sm:px-6 sm:py-5">
 				{user ? (
 					<Conversation key={user.id} user={user} />
 				) : (
